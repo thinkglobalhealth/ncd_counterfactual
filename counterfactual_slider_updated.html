@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .slider-container {
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: Larsseit, Arial, Helvetica, sans-serif;
+  }
+  
+  .slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .time-label {
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .slider-wrapper {
+    position: relative;
+    padding-top: 2px;
+    flex: 1;
+  }
+  
+  .slider-tooltip {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    transform: translateX(-50%);
+    color: #666666;
+    font-size: 12px;
+    font-weight: 400;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    outline: none;
+    margin: 20px 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  
+  /* Webkit track */
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+  }
+  
+  /* Webkit thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #c0c0c0;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -4px;
+    transition: background 0.2s;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background: #a8a8a8;
+  }
+  
+  /* Firefox track */
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+  }
+  
+  /* Firefox thumb */
+  input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #c0c0c0;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    transition: background 0.2s;
+  }
+  
+  input[type="range"]::-moz-range-thumb:hover {
+    background: #a8a8a8;
+  }
+  
+  .chart-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 421px;
+  }
+  
+  .chart-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .chart-frame.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+
+<div class="slider-container">
+  <div class="slider-controls">
+    <div class="time-label"><b>Start year:</b></div>
+    <div class="slider-wrapper">
+      <div class="slider-tooltip" id="slider-tooltip">2025</div>
+      <input type="range" id="time-slider" min="0" max="5" value="0" step="1">
+    </div>
+  </div>
+  
+  <div class="chart-wrapper" id="chart-container">
+    <div class="chart-frame active" data-year="2025">
+      <iframe title="Projected Premature Deaths Caused by Noncommunicable Diseases: 2025" 
+              aria-label="Line chart" 
+              src="https://datawrapper.dwcdn.net/Ldgo1/1/" 
+              scrolling="no" 
+              frameborder="0" 
+              style="border: none;" 
+              width="100%" 
+              height="421" 
+              data-external="1"></iframe>
+    </div>
+    
+    <div class="chart-frame" data-year="2030">
+      <iframe title="Projected Premature Deaths Caused by Noncommunicable Diseases: 2030" 
+              aria-label="Line chart" 
+              src="https://datawrapper.dwcdn.net/U0ihy/1/" 
+              scrolling="no" 
+              frameborder="0" 
+              style="border: none;" 
+              width="100%" 
+              height="421" 
+              data-external="1"></iframe>
+    </div>
+    
+    <div class="chart-frame" data-year="2035">
+      <iframe title="Projected Premature Deaths Caused by Noncommunicable Diseases: 2035" 
+              aria-label="Line chart" 
+              src="https://datawrapper.dwcdn.net/InCjp/1/" 
+              scrolling="no" 
+              frameborder="0" 
+              style="border: none;" 
+              width="100%" 
+              height="421" 
+              data-external="1"></iframe>
+    </div>
+    
+    <div class="chart-frame" data-year="2040">
+      <iframe title="Projected Premature Deaths Caused by Noncommunicable Diseases: 2040" 
+              aria-label="Line chart" 
+              src="https://datawrapper.dwcdn.net/z66DW/1/" 
+              scrolling="no" 
+              frameborder="0" 
+              style="border: none;" 
+              width="100%" 
+              height="421" 
+              data-external="1"></iframe>
+    </div>
+    
+    <div class="chart-frame" data-year="2045">
+      <iframe title="Projected Premature Deaths Caused by Noncommunicable Diseases: 2045" 
+              aria-label="Line chart" 
+              src="https://datawrapper.dwcdn.net/b6qSR/1/" 
+              scrolling="no" 
+              frameborder="0" 
+              style="border: none;" 
+              width="100%" 
+              height="421" 
+              data-external="1"></iframe>
+    </div>
+      
+    <div class="chart-frame" data-year="2050">
+      <iframe title="Projected Premature Deaths Caused by Noncommunicable Diseases: 2050" 
+              aria-label="Line chart" 
+              src="https://datawrapper.dwcdn.net/rUKaT/1/" 
+              scrolling="no" 
+              frameborder="0" 
+              style="border: none;" 
+              width="100%" 
+              height="421" 
+              data-external="1"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  setTimeout(function() {
+    const years = ['2025', '2030', '2035', '2040', '2045', '2050'];
+    
+    const container = document.querySelector('.slider-container');
+    if (!container) {
+      console.error('Container not found');
+      return;
+    }
+    
+    const slider = container.querySelector('#time-slider');
+    const tooltip = container.querySelector('#slider-tooltip');
+    const chartFrames = container.querySelectorAll('.chart-frame');
+    
+    if (!slider || !tooltip || chartFrames.length === 0) {
+      console.error('Elements not found', {slider, tooltip, frames: chartFrames.length});
+      return;
+    }
+    
+    console.log('All elements found successfully');
+    
+    function updateTooltipPosition() {
+      const sliderRect = slider.getBoundingClientRect();
+      const sliderWidth = sliderRect.width;
+      const value = parseInt(slider.value);
+      const max = parseInt(slider.max);
+      const percent = value / max;
+      const thumbOffset = percent * sliderWidth;
+      
+      tooltip.style.left = thumbOffset + 'px';
+      tooltip.textContent = years[value];
+    }
+    
+    slider.addEventListener('input', function() {
+      const index = parseInt(this.value);
+      
+      updateTooltipPosition();
+      
+      chartFrames.forEach((frame, i) => {
+        if (i === index) {
+          frame.classList.add('active');
+        } else {
+          frame.classList.remove('active');
+        }
+      });
+    });
+    
+    slider.addEventListener('mousemove', updateTooltipPosition);
+    
+    updateTooltipPosition();
+  }, 500); 
+})();
+</script>
+
+</body>
+</html>
